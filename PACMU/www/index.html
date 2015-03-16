@@ -26,18 +26,13 @@
 
   </head>
   <body ng-app="starter">
-
-    <ion-pane>
-      <div class="bar bar-header bar-light">
-        <h1 class="title">Public Art at CMU</h1>
-      </div>
-      <ion-content>
-        
-      </ion-content>
-      <div class="bar bar-footer">
-        <button class="button button-clear">Take A Tour</button>
-        <button class="button button-clear" href="#/maps">Nearest Piece</button>
-      </div>
-    </ion-pane>
+    <div class="bar bar-header bar-light">
+      <h1 class="title">Public Art at CMU</h1>
+    </div>
+    <ion-nav-view name="map"></ion-nav-view>
+    <div class="bar bar-footer">
+      <button class="button button-clear">Left</button>
+      <a class="button button-clear" href="#/map">Nearest Piece</a>
+    </div>
   </body>
 </html>
