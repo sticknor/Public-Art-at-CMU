@@ -48,12 +48,6 @@ angular.module('starter', ['ionic'])
       $scope.tourModal = modal
     }) 
 
-  $ionicModal.fromTemplateUrl('workOfArt.html', {
-      scope: $scope,
-      animation: 'slide-in-left'
-    }).then(function(modal) {
-      $scope.workModal = modal
-    }) 
 
   $scope.openTourModal = function() {
     $scope.tourModal.show()
@@ -63,12 +57,69 @@ angular.module('starter', ['ionic'])
     $scope.tourModal.hide();
   };
 
-  $scope.openWorkModal = function() {
-    $scope.workModal.show()
+  function loadJSON(path, success, error)
+  {
+      var xhr = new XMLHttpRequest();
+      xhr.onreadystatechange = function()
+      {
+          if (xhr.readyState === XMLHttpRequest.DONE) {
+              if (xhr.status === 200) {
+                  if (success)
+                      success(JSON.parse(xhr.responseText));
+              } else {
+                  if (error)
+                      error(xhr);
+              }
+          }
+      };
+      xhr.open("GET", path, true);
+      xhr.send();
+  }
+
+ $scope.previousImage = function() {
+    var len = $scope.workData.Images.length;
+    if ($scope.imageIndex < len-1){
+      $scope.imageIndex++;
+    }
+    else{
+      $scope.imageIndex = 0;
+    }
+    document.getElementById("workImage").src = $scope.workData.Images[$scope.imageIndex]
+ }
+
+ $scope.nextImage = function(){
+ var len = $scope.workData.Images.length;
+    if ($scope.imageIndex > 0){
+      $scope.imageIndex--;
+    }
+    else{
+      $scope.imageIndex = len-1;
+    }
+    document.getElementById("workImage").src = $scope.workData.Images[$scope.imageIndex]
+ }
+
+
+  $scope.openWorkModal = function(file) {
+    loadJSON('../resources/'+file,
+             function(data) { 
+              $scope.workData = data;
+             },
+             function(xhr) { console.error(xhr); }
+    );
+
+
+    $ionicModal.fromTemplateUrl('workOfArt.html', {
+        scope: $scope,
+        animation: 'slide-in-left'
+      }).then(function(modal) {
+        $scope.workModal = modal;
+        $scope.imageIndex = 0;
+      $scope.workModal.show()
+      }) 
   }
 
   $scope.closeWorkModal = function() {
-    $scope.workModal.hide();
+    $scope.workModal.remove();
   };
 
   $scope.$on('$destroy', function() {
@@ -76,31 +127,45 @@ angular.module('starter', ['ionic'])
     $scope.workModal.remove();
   });
 
+
   function initialize() {
-    var myLatlng = new google.maps.LatLng(40.44249,-79.94255);
+    var CMU = new google.maps.LatLng(40.44249,-79.94255);
         
     var mapOptions = {
-      center: myLatlng,
+      center: CMU,
       zoom: 18,
       mapTypeId: google.maps.MapTypeId.SATELLITE
     };
     var map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
-    var marker = new google.maps.Marker({
-      position: myLatlng,
+    // ART MARKERS 
+    var kraus_campo = new google.maps.Marker({
+      position: new google.maps.LatLng(40.441661,-79.942426),
       map: map,
-      title: 'Carnegie Mellon University'
+      title: 'Kraus Campo'
     });
 
-    google.maps.event.addListener(marker, 'click', function() {
-      console.log("CLICKED")
+    google.maps.event.addListener(kraus_campo, 'click', function() {
+      $scope.openWorkModal("Kraus_Campo/Kraus_Campo.json")
     });
+
+
+
 
     $scope.map = map;
   }
+
   
   google.maps.event.addDomListener(window, 'load', initialize);
-      
+
+  $scope.centerOnCMU = function(){
+    $scope.loading = $ionicLoading.show({
+      showBackdrop: false
+    });
+    $scope.map.setCenter(new google.maps.LatLng(40.44249,-79.94255))
+    $ionicLoading.hide();
+  }
+
   $scope.centerOnMe = function() {
     if(!$scope.map) {
       return;

@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <title></title>
-
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 
@@ -28,7 +27,7 @@
   <body ng-app="starter" ng-controller="AppCtrl">
 
     <ion-pane>
-      <div id = "topBar" class="bar bar-header bar-light">
+      <div id = "topBar" ng-click="centerOnCMU()" class="bar bar-header bar-light">
         <h1 id = "Title" class = "title">Public Art at CMU</h1>
       </div>
       <ion-content>
@@ -46,26 +45,45 @@
     <ion-header-bar>
       <h1 id = "secondTitle" class="title">Plan a Tour</h1>
     </ion-header-bar>
-      <div  id = "bottomBar" class="bar bar-footer">
+ 
+    <ion-content>
+      <button class = "tourButton selection button">
+        Short Tour (1 mile)
+      </button>
+      <button  class = " selection button tourButton">
+        Full Tour (5.8 miles)
+      </button>
+    </ion-content>
+     <div  id = "bottomBar" class="bar bar-footer">
         <button ng-click="" class="selection button button-clear">Begin</button>
           <button ng-click="closeTourModal()" class="selection button button-clear">Cancel</button>
       </div>
-    </ion-content>
-    <ion-content>
   </div>
 
 </script>
 
   <script id="workOfArt.html" type="text/ng-template">
-  <div id = "workOfArtModal" class="modal" on-swipe-left="onSwipeLeft()">
+  <div id = "workOfArtModal" class="modal" on-swipe-left="previousImage()" on-swipe-right="nextImage()">
     <ion-header-bar>
       <h1 id = "secondTitle" class="title">Public Art at CMU</h1>
     </ion-header-bar>
-      <div  id = "bottomBar" class="bar bar-footer">
-          <button ng-click="closeWorkModal()" class="selection button button-clear">Close</button>
-      </div>
-    </ion-content>
+
     <ion-content>
+     <img id="workImage" src = {{workData.Images[0]}} />
+     <div id = "workTitle">
+        {{workData.Title}}
+     </div>
+     <div>
+        {{workData.Artist}}
+     </div>
+     <div>
+        {{workData.Year}}
+     </div>
+    </ion-content>
+
+      <div  id = "bottomBarWork" class="bar bar-footer">
+          <button id = "closeWork" ng-click="closeWorkModal()" class="selection button button-clear">Close</button>
+      </div>
   </div>
 </script>
 

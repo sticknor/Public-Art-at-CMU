@@ -1,9 +1,14 @@
 {
-  "Location" : "UC Second Level",
-  "Title" : "Pittsburgh Mural",
-  "Artist" : "Douglas Cooper (Arch '70)",
-  "Year" : "1996",
-  "Medium" : "Vine charcoal on paper mounted front and back with Liquitex acrylic gel medium over pre-sealed fibre board panels: Liquitex gloss medium: Liquitex Saluvar varnish",
+  "Location" : "Between CFA and Tepper School of Business",
+  "Coordinates" : {
+      "Longitude" : 40.441661,
+      "Latitude" : -79.942426
+  },
+  "Title" : "Krauss Campo",
+  "Artist" : "Mel Bochner and Michael Van Valkenburgh Associates",
+  "Notes" : "Gits of Jill Gansman Kraus (A '64) and Peter Krauss",
+  "Year" : "2005",
+  "Medium" : "",
   "Information": "Saw Rotunda in architects plans and immediately wanted to do mural
     Visited relatives Pittsburgh as a child
 
