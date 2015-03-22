@@ -1,1 +1,45 @@
 /* Empty. Add your own CSS if you like */
+#map{
+	width: 100%;
+	height: 1000px;
+}
+
+#topBar{
+	background-color: #b00000;
+}
+
+#bottomBar{
+}
+
+#Title{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #ffffff;
+	font-weight: bold;
+}
+
+#secondTitle{
+	color: #b00000;
+	font-weight: bold;
+}
+
+.selection{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #b00000 !important;
+	margin: 0px 30px;
+}
+
+#planTourModal{
+	background-color:rgba(255,255,255,0.7);
+}
+
+#workOfArtModal{
+}
+
+#map {
+  width: 100%;
+  height: 100%;
+}
+
+.scroll {
+  height: 100%;
+}

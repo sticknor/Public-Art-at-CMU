@@ -1,6 +1,12 @@
 angular.module('starter.controllers', [])
 
-.controller('DashCtrl', function($scope) {})
+// .controller('SplashCtrl', function($scope) {
+// 	console.log("running splash ctrl")
+// })
+
+.controller('DashCtrl', function($scope) {
+	console.log("running dash ctrl")
+})
 
 .controller('ChatsCtrl', function($scope, Chats) {
   $scope.chats = Chats.all();

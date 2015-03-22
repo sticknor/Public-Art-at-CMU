@@ -25,19 +25,52 @@
     <script src="http://maps.google.com/maps/api/js"></script>
 
   </head>
-  <body ng-app="starter">
+  <body ng-app="starter" ng-controller="AppCtrl">
 
     <ion-pane>
-      <div class="bar bar-header bar-light">
-        <h1 class="title">Public Art at CMU</h1>
+      <div id = "topBar" class="bar bar-header bar-light">
+        <h1 id = "Title" class = "title">Public Art at CMU</h1>
       </div>
       <ion-content>
-        
+        <div id="map" data-tap-disabled="true"></div>
       </ion-content>
-      <div class="bar bar-footer">
-        <button class="button button-clear">Take A Tour</button>
-        <button class="button button-clear" href="#/maps">Nearest Piece</button>
+  </body>
+      </ion-content ng-controller= "MapCtrl">
+              <div id = "mapCanvas">
+        </div>
+      <div  id = "bottomBar" class="bar bar-footer">
+        <button ng-click="openTourModal()" class="selection button button-clear">Take A Tour</button>
+        <button ng-click="centerOnMe()" class="selection button button-clear">Nearest Piece</button>
       </div>
     </ion-pane>
   </body>
+  <script id="planTour.html" type="text/ng-template">
+
+  <div id = "planTourModal" class="modal">
+    <ion-header-bar>
+      <h1 id = "secondTitle" class="title">Plan a Tour</h1>
+    </ion-header-bar>
+      <div  id = "bottomBar" class="bar bar-footer">
+        <button ng-click="" class="selection button button-clear">Begin</button>
+          <button ng-click="closeTourModal()" class="selection button button-clear">Cancel</button>
+      </div>
+    </ion-content>
+    <ion-content>
+  </div>
+
+</script>
+
+  <script id="workOfArt.html" type="text/ng-template">
+  <div id = "workOfArtModal" class="modal" on-swipe-left="onSwipeLeft()">
+    <ion-header-bar>
+      <h1 id = "secondTitle" class="title">Public Art at CMU</h1>
+    </ion-header-bar>
+      <div  id = "bottomBar" class="bar bar-footer">
+          <button ng-click="closeWorkModal()" class="selection button button-clear">Close</button>
+      </div>
+    </ion-content>
+    <ion-content>
+  </div>
+</script>
+
 </html>
