@@ -64,26 +64,26 @@ angular.module('starter', ['ionic'])
     }) 
   $scope.openTourModal = function() {
     $scope.tourModal.show()
-  }
+  };
   $scope.closeTourModal = function() {
     $scope.tourModal.hide();
   };
 
 
   ////////// Work Modal ///////////////
-  $ionicModal.fromTemplateUrl('workOfArt.html', {
-      scope: $scope,
-      animation: 'slide-in-up'
-    }).then(function(modal) {
-      $scope.workModal = modal;
-      $scope.imageIndex = 0;
-      $scope.workModal.show()
-    }) 
-  }
   $scope.openWorkModal = function(file) {
+    console.log("called from where")
     loadJSON('../resources/'+file,
              function(data) { 
               $scope.workData = data;
+              $ionicModal.fromTemplateUrl('workOfArt.html', {
+                  scope: $scope,
+                  animation: 'slide-in-up'
+                }).then(function(modal) {
+                  $scope.workModal = modal;
+                  $scope.imageIndex = 0;
+                  $scope.workModal.show()
+                });
              },
              function(xhr) { console.error(xhr); }
     );
@@ -135,9 +135,6 @@ angular.module('starter', ['ionic'])
     document.getElementById("workImage").src = $scope.workData.Images[$scope.imageIndex]
     document.getElementById("workImageNav").innerHTML = (circles.join()).replace(/,/g, "");
 }
-
-
-
 
   $scope.$on('$destroy', function() {
     $scope.tourModal.remove();
