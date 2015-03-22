@@ -29,20 +29,14 @@ angular.module('starter', ['ionic'])
   });
 })
 
-.config(function($stateProvider) {
+.config(function($stateProvider, $urlRouterProvider){
   $stateProvider
-
     .state('app', {
       url: "/",
       templateUrl: "index.html"
     })
 
 })
-
-  .controller('MapCtrl', function($scope, $ionicLoading, $compile) {
-     
-      
-    })
 
 
 .controller('AppCtrl', function($scope, $ionicPlatform, $ionicModal){
