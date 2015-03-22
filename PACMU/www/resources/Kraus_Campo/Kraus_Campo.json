@@ -3,6 +3,8 @@
     "Images" : ["resources/Kraus_Campo/Kraus_Campo_01.jpg",
                 "resources/Kraus_Campo/Kraus_Campo_02.jpg",
                 "resources/Kraus_Campo/Kraus_Campo_03.jpg"],
+    "ImagesMinus" : ["resources/Kraus_Campo/Kraus_Campo_01.jpg",
+                "resources/Kraus_Campo/Kraus_Campo_02.jpg"],
     "Coordinates": {
         "Longitude": 40.441661,
         "Latitude": -79.942426

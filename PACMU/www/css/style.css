@@ -36,6 +36,10 @@
 	background-color:rgba(255,255,255,0.7);
 }
 
+#workOfArtModal{
+	text-align: center;
+}
+
 #map {
   width: 100%;
   height: 100%;
@@ -50,5 +54,14 @@
 }
 
 #workImage{
+	margin: auto;
 	width: 90%;
+	height: 300px;
+}
+
+#workImageNav{
+	margin-top: 10px;
+	font-size: 20px;
+	color: #b00000;
+	opacity: .6;
 }

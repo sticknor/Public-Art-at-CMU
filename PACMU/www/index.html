@@ -39,52 +39,52 @@
       </div>
     </ion-pane>
   </body>
+
   <script id="planTour.html" type="text/ng-template">
-
-  <div id = "planTourModal" class="modal">
-    <ion-header-bar>
-      <h1 id = "secondTitle" class="title">Plan a Tour</h1>
-    </ion-header-bar>
- 
-    <ion-content>
-      <button class = "tourButton selection button">
-        Short Tour (1 mile)
-      </button>
-      <button  class = " selection button tourButton">
-        Full Tour (5.8 miles)
-      </button>
-    </ion-content>
-     <div  id = "bottomBar" class="bar bar-footer">
-        <button ng-click="" class="selection button button-clear">Begin</button>
-          <button ng-click="closeTourModal()" class="selection button button-clear">Cancel</button>
+    <div id="planTourModal" class="modal">
+      <ion-header-bar>
+        <h1 id="secondTitle" class="title">Plan a Tour</h1>
+      </ion-header-bar> 
+      <ion-content>
+        <button class ="tourButton selection button">
+          Short Tour (1 mile)
+        </button>
+        <button class=" selection button tourButton">
+          Full Tour (5.8 miles)
+        </button>
+      </ion-content>
+      <div id="bottomBar" class="bar bar-footer">
+        <button class="selection button button-clear">Begin</button>
+        <button ng-click="closeTourModal()" class="selection button button-clear">Cancel</button>
       </div>
-  </div>
-
-</script>
+    </div>
+  </script>
 
   <script id="workOfArt.html" type="text/ng-template">
-  <div id = "workOfArtModal" class="modal" on-swipe-left="previousImage()" on-swipe-right="nextImage()">
-    <ion-header-bar>
-      <h1 id = "secondTitle" class="title">Public Art at CMU</h1>
-    </ion-header-bar>
-
-    <ion-content>
-     <img id="workImage" src = {{workData.Images[0]}} />
-     <div id = "workTitle">
-        {{workData.Title}}
-     </div>
-     <div>
-        {{workData.Artist}}
-     </div>
-     <div>
-        {{workData.Year}}
-     </div>
-    </ion-content>
-
+    <div id ="workOfArtModal" class="modal" on-swipe-left="nextImage()" on-swipe-right="previousImage()">
+      <ion-header-bar>
+        <h1 id = "secondTitle" class="title">Public Art at CMU</h1>
+      </ion-header-bar>
+      <ion-content>
+        <img id="workImage" src ={{workData.Images[0]}} />
+        <div id="workImageNav">
+          <!-- Initializing Circles -->
+          <span>&#9679</span><span data-ng-repeat="i in workData.ImagesMinus">&#9675</span>
+        </div>
+        <div id = "workTitle">
+          {{workData.Title}}
+        </div>
+        <div>
+          {{workData.Artist}}
+        </div>
+        <div>
+          {{workData.Year}}
+        </div>
+      </ion-content>
       <div  id = "bottomBarWork" class="bar bar-footer">
-          <button id = "closeWork" ng-click="closeWorkModal()" class="selection button button-clear">Close</button>
+        <button id = "closeWork" ng-click="closeWorkModal()" class="selection button button-clear">Close</button>
       </div>
-  </div>
-</script>
+    </div>
+  </script>
 
 </html>
