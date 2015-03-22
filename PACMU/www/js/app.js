@@ -39,7 +39,7 @@ angular.module('starter', ['ionic'])
 })
 
 
-.controller('AppCtrl', function($scope, $ionicPlatform, $ionicModal){
+.controller('AppCtrl', function($scope, $ionicLoading, $ionicPlatform, $ionicModal){
   console.log("running AppCtrl")
   $ionicModal.fromTemplateUrl('planTour.html', {
       scope: $scope,
@@ -76,59 +76,52 @@ angular.module('starter', ['ionic'])
     $scope.workModal.remove();
   });
 
- function initialize() {
-        console.log("initializingMap")
-        var myLatlng = new google.maps.LatLng(40.44249,-79.94255);
+  function initialize() {
+    var myLatlng = new google.maps.LatLng(40.44249,-79.94255);
         
-        var mapOptions = {
-          center: myLatlng,
-          zoom: 17,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
-        var map = new google.maps.Map(document.getElementById("map"),
-            mapOptions);
-        
-        //Marker + infowindow + angularjs compiled ng-click
-        var contentString = "<div><a ng-click='clickTest()'>Click me!</a></div>";
-        var compiled = $compile(contentString)($scope);
+    var mapOptions = {
+      center: myLatlng,
+      zoom: 18,
+      mapTypeId: google.maps.MapTypeId.SATELLITE
+    };
+    var map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
-        var infowindow = new google.maps.InfoWindow({
-          content: compiled[0]
-        });
+    var marker = new google.maps.Marker({
+      position: myLatlng,
+      map: map,
+      title: 'Carnegie Mellon University'
+    });
 
-        var marker = new google.maps.Marker({
-          position: myLatlng,
-          map: map,
-          title: 'Uluru (Ayers Rock)'
-        });
+    google.maps.event.addListener(marker, 'click', function() {
+      console.log("CLICKED")
+    });
 
-        google.maps.event.addListener(marker, 'click', function() {
-          infowindow.open(map,marker);
-        });
-
-        $scope.map = map;
-      }
-      google.maps.event.addDomListener(window, 'load', initialize);
+    $scope.map = map;
+  }
+  
+  google.maps.event.addDomListener(window, 'load', initialize);
       
-      $scope.centerOnMe = function() {
-        if(!$scope.map) {
-          return;
-        }
-
-        $scope.loading = $ionicLoading.show({
-          content: 'Getting current location...',
-          showBackdrop: false
-        });
-
-        navigator.geolocation.getCurrentPosition(function(pos) {
+  $scope.centerOnMe = function() {
+    if(!$scope.map) {
+      return;
+    }
+    $scope.loading = $ionicLoading.show({
+      showBackdrop: false
+    });
+    if (navigator.geolocation) {
+      var timeoutVal = 1000*1000*100;
+      navigator.geolocation.getCurrentPosition(
+        function(pos){
           $scope.map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
-          $scope.loading.hide();
-        }, function(error) {
+          $ionicLoading.hide();
+        }, 
+        function(error) {
           alert('Unable to get location: ' + error.message);
-        });
-      };
-      
-      $scope.clickTest = function() {
-        alert('Example of infowindow with ng-click')
-      };
+        },
+        { enableHighAccuracy: true, timeout: timeoutVal, maximumAge: 0 }
+      )
+    } else {
+      alert("Geolocation is not supported by this browser");
+    }
+  }  
 })
