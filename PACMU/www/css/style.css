@@ -26,6 +26,13 @@
 	font-weight: bold;
 }
 
+#workTitle{
+	color: #b00000;
+	font-size: 24px;
+	text-align: left;
+	padding-left: 5%;
+}
+
 .selection{
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	color: #b00000 !important;
@@ -38,6 +45,7 @@
 
 #workOfArtModal{
 	text-align: center;
+	margin-top: 45px;
 }
 
 #map {
@@ -60,8 +68,60 @@
 }
 
 #workImageNav{
-	margin-top: 10px;
+	letter-spacing: 5px;
+	margin-top: 0px;
+	margin-bottom: 15px;
 	font-size: 20px;
 	color: #b00000;
 	opacity: .6;
+}
+
+#workContent{
+	padding-top: 20px;
+	overflow: scroll;
+}
+
+/*//////////// WORK PAGE STYLE //////////////////*/
+
+#workText{
+	padding: 20px;
+	padding-top: 5px;}
+
+#workTitle{
+	padding-bottom: 15px;
+}
+
+#workLocation{
+	text-align: center;
+	padding-bottom: 10px;
+}
+
+#workArtist, #workYear{
+	text-align: left;
+	font-size: 16px;
+	margin: 10px 0px;
+}
+
+#workMedium, #workNotes{
+	text-align: left;
+}
+
+#workNotes{
+	text-align: center;
+	margin-bottom: 15px;
+	padding-top: 15px; 
+	font-size: 12px;
+}
+
+#workInformation{
+	font-size: 15px;
+	text-align: left;
+}
+
+.workLabel{
+	font-weight: bold;
+}
+
+#workClose{
+	margin-bottom: 70px;
 }
