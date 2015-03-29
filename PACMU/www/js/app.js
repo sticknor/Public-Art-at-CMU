@@ -37,10 +37,38 @@ angular.module('starter', ['ionic'])
     };
     var map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
+    $scope.kraus_campo_location = new google.maps.LatLng(40.441661,-79.942426);
+    $scope.pittsburgh_mural_location = new google.maps.LatLng(40.443452,-79.942273);
+    $scope.cfa_niches_location = new google.maps.LatLng(40.441684,-79.943110);
+    $scope.mannino_tiles_location = new google.maps.LatLng(40.443302,-79.942556);
+    $scope.walking_sky_location = new google.maps.LatLng(40.444140,-79.942884);
+    $scope.purnell_sculptures_location = new google.maps.LatLng(40.443481,-79.943273);
+    $scope.cloud_window_location =  new google.maps.LatLng(40.442614, -79.943628);
+    $scope.fresh_faces_location = new google.maps.LatLng(40.443601, -79.942217);
+    $scope.snowman_location = new google.maps.LatLng(40.442122, -79.944152);
+    $scope.two_oranges_location = new google.maps.LatLng(40.442425, -79.945938);
+    $scope.mao_yisheng_location = new google.maps.LatLng(40.441756, -79.945458);
+    $scope.the_fence_location = new google.maps.LatLng(40.442247, -79.943479);
+
+    $scope.work_locations = [
+      $scope.kraus_campo_location,
+      $scope.pittsburgh_mural_location,
+      $scope.cfa_niches_location,
+      $scope.mannino_tiles_location,
+      $scope.walking_sky_location,
+      $scope.purnell_sculptures_location,
+      $scope.cloud_window_location,
+      $scope.fresh_faces_location,
+      $scope.snowman_location,
+      $scope.two_oranges_location,
+      $scope.mao_yisheng_location,
+      $scope.the_fence_location,
+    ]
+
     //////// Art Markers ////////////
     // Kraus Campo
     var kraus_campo = new google.maps.Marker({
-      position: new google.maps.LatLng(40.441661,-79.942426),
+      position: $scope.kraus_campo_location,
       map: map,
       title: 'Kraus Campo'
     });
@@ -49,7 +77,7 @@ angular.module('starter', ['ionic'])
     });
     // Pittsburgh Mural
     var pittsburgh_mural = new google.maps.Marker({
-      position: new google.maps.LatLng(40.443452,-79.942273),
+      position: $scope.pittsburgh_mural_location,
       map: map,
       title: 'Pittsburgh Mural'
     });
@@ -58,7 +86,7 @@ angular.module('starter', ['ionic'])
     });
     // CFA Niches
     var cfa_niches = new google.maps.Marker({
-      position: new google.maps.LatLng(40.441684,-79.943110),
+      position: $scope.cfa_niches_location,
       map: map,
       title: 'CFA Niches'
     });
@@ -67,7 +95,7 @@ angular.module('starter', ['ionic'])
     });
     // Mannino's Tiles
     var mannino_tiles = new google.maps.Marker({
-      position: new google.maps.LatLng(40.443302,-79.942556),
+      position: $scope.mannino_tiles_location,
       map: map,
       title: "Mannino's Tiles"
     });
@@ -76,7 +104,7 @@ angular.module('starter', ['ionic'])
     });
     // Walking to the Sky
     var walking_sky = new google.maps.Marker({
-      position: new google.maps.LatLng(40.444140,-79.942884),
+      position: $scope.walking_sky_location,
       map: map,
       title: "Walking to the Sky"
     });
@@ -85,7 +113,7 @@ angular.module('starter', ['ionic'])
     });    
     // Purnell Hall Sculptures
     var purnell_sculptures = new google.maps.Marker({
-      position: new google.maps.LatLng(40.443481,-79.943273),
+      position: $scope.purnell_sculptures_location,
       map: map,
       title: "Purnell Hall Sculptures"
     });
@@ -94,7 +122,7 @@ angular.module('starter', ['ionic'])
     });    
     // Cloud Window
     var cloud_window = new google.maps.Marker({
-      position: new google.maps.LatLng(40.442614, -79.943628),
+      position: $scope.cloud_window_location,
       map: map,
       title: "Cloud Window"
     });
@@ -103,7 +131,7 @@ angular.module('starter', ['ionic'])
     });    
     // Fresh Faces
     var fresh_faces = new google.maps.Marker({
-      position: new google.maps.LatLng(40.443601, -79.942217),
+      position: $scope.fresh_faces_location,
       map: map,
       title: "Fresh Faces"
     });
@@ -112,7 +140,7 @@ angular.module('starter', ['ionic'])
     });   
     // Snowman
     var snowman = new google.maps.Marker({
-      position: new google.maps.LatLng(40.442122, -79.944152),
+      position: $scope.snowman_location,
       map: map,
       title: "Snowman"
     });
@@ -121,7 +149,7 @@ angular.module('starter', ['ionic'])
     });   
     // For the Love of Two Oranges
     var two_oranges = new google.maps.Marker({
-      position: new google.maps.LatLng(40.442425, -79.945938),
+      position: $scope.two_oranges_location,
       map: map,
       title: "For the Love of Two Oranges"
     });
@@ -130,7 +158,7 @@ angular.module('starter', ['ionic'])
     });   
     // Mao Yisheng
     var mao_yisheng = new google.maps.Marker({
-      position: new google.maps.LatLng(40.441756, -79.945458),
+      position: $scope.mao_yisheng_location,
       map: map,
       title: "Mao Yisheng"
     });
@@ -139,15 +167,13 @@ angular.module('starter', ['ionic'])
     });   
     // For the Love of Two Oranges
     var the_fence = new google.maps.Marker({
-      position: new google.maps.LatLng(40.442247, -79.943479),
+      position: $scope.the_fence_location,
       map: map,
       title: "The Fence"
     });
     google.maps.event.addListener(the_fence, 'click', function() {
       $scope.openWorkModal("The_Fence/The_Fence.json")
     });   
-
-
 
     $scope.map = map;
   }
@@ -268,6 +294,8 @@ angular.module('starter', ['ionic'])
       navigator.geolocation.getCurrentPosition(
         function(pos){
           $scope.map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
+          // get and add directions to nearest work
+          $scope.directionsToNearest(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
           $ionicLoading.hide();
         }, 
         function(error) {
@@ -278,5 +306,50 @@ angular.module('starter', ['ionic'])
     } else {
       alert("Geolocation is not supported by this browser");
     }
-  }  
+  }
+
+  $scope.directionsToNearest = function(meLatLng) {
+    service = new google.maps.DistanceMatrixService();
+    $scope.meLatLng = meLatLng;
+    service.getDistanceMatrix(
+    {
+      origins: [$scope.meLatLng],
+      destinations: $scope.work_locations,
+      travelMode: google.maps.TravelMode.WALKING,
+      unitSystem: google.maps.UnitSystem.IMPERIAL,
+    }, callback);
+
+    function callback(response, status) {
+      var results = response.rows[0].elements;
+      var closestDistance = Number.MAX_VALUE;
+      var closest;
+      var closeBy = [];
+      for (var j = 0; j < results.length; j++) {
+        var element = results[j];
+        var distance = element.distance.text;
+        if (element.distance.value < closestDistance){
+          closestDistance = element.distance.value;
+          closest = $scope.work_locations[j];
+           var request = {
+                origin: $scope.meLatLng,
+                destination: closest,
+                travelMode: google.maps.TravelMode.WALKING
+            };
+          var directionsDisplay;
+          directionsDisplay = new google.maps.DirectionsRenderer({
+            suppressMarkers: true
+          });
+          directionsDisplay.setMap($scope.map)
+            var directionsService = new google.maps.DirectionsService();
+            directionsService.route(request, function(response, status) {
+              if (status == google.maps.DirectionsStatus.OK) {
+                directionsDisplay.setDirections(response);
+              }
+            });
+        }
+      }
+    }
+  }
+
+
 })
