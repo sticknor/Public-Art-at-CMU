@@ -65,6 +65,21 @@ angular.module('starter', ['ionic'])
       $scope.the_fence_location,
     ]
 
+    $scope.work_information = [
+      "Kraus_Campo/Kraus_Campo.json",
+      "Pittsburgh_Mural/Pittsburgh_Mural.json",
+      "CFA_Niches/CFA_Niches.json",
+      "Mannino_Tiles/Mannino_Tiles.json",
+      "Walking_To_The_Sky/Walking_To_The_Sky.json",
+      "Purnell_Sculptures/Purnell_Sculptures.json",
+      "Cloud_Window/Cloud_Window.json",
+      "Fresh_Faces/Fresh_Faces.json",
+      "Snowman/Snowman.json",
+      "Two_Oranges/Two_Oranges.json",
+      "Mao_Yisheng/Mao_Yisheng.json",
+      "The_Fence/The_Fence.json"
+    ]
+
     //////// Art Markers ////////////
     // Kraus Campo
     var kraus_campo = new google.maps.Marker({
@@ -293,7 +308,6 @@ angular.module('starter', ['ionic'])
       var timeoutVal = 1000*1000*100;
       navigator.geolocation.getCurrentPosition(
         function(pos){
-          $scope.map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
           // get and add directions to nearest work
           $scope.directionsToNearest(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
           $ionicLoading.hide();
@@ -322,34 +336,60 @@ angular.module('starter', ['ionic'])
     function callback(response, status) {
       var results = response.rows[0].elements;
       var closestDistance = Number.MAX_VALUE;
-      var closest;
+      var closestIndex = 0;
       var closeBy = [];
       for (var j = 0; j < results.length; j++) {
         var element = results[j];
         var distance = element.distance.text;
         if (element.distance.value < closestDistance){
+          $scope.distance = element.distance.text;
           closestDistance = element.distance.value;
-          closest = $scope.work_locations[j];
-           var request = {
-                origin: $scope.meLatLng,
-                destination: closest,
-                travelMode: google.maps.TravelMode.WALKING
-            };
-          var directionsDisplay;
-          directionsDisplay = new google.maps.DirectionsRenderer({
-            suppressMarkers: true
-          });
-          directionsDisplay.setMap($scope.map)
-            var directionsService = new google.maps.DirectionsService();
-            directionsService.route(request, function(response, status) {
-              if (status == google.maps.DirectionsStatus.OK) {
-                directionsDisplay.setDirections(response);
-              }
-            });
+          closestIndex = j;
         }
       }
+
+      var request = {
+        origin: $scope.meLatLng,
+        destination: $scope.work_locations[closestIndex],
+        travelMode: google.maps.TravelMode.WALKING
+      };
+
+      var directionsDisplay;
+      directionsDisplay = new google.maps.DirectionsRenderer({
+       suppressMarkers: true
+      });
+      directionsDisplay.setMap($scope.map)
+
+      var directionsService = new google.maps.DirectionsService();
+      directionsService.route(request, function(response, status) {
+        if (status == google.maps.DirectionsStatus.OK) {
+          directionsDisplay.setDirections(response);
+          $scope.openPreviewModal($scope.work_information[closestIndex]);
+        }
+      });
     }
   }
+
+
+  $scope.openPreviewModal = function(file) {
+    loadJSON('../resources/'+file,
+             function(data) { 
+              $scope.workData = data;
+              $ionicModal.fromTemplateUrl('previewInfo.html', {
+                  scope: $scope,
+                  animation: 'slide-in-up'
+                }).then(function(modal) {
+                  $scope.previewModal = modal;
+                  $scope.previewModal.show()
+                });
+             },
+             function(xhr) { console.error(xhr); }
+    );
+  };
+  $scope.closePreviewModal = function() {
+    $scope.previewModal.remove();
+  };
+
 
 
 })

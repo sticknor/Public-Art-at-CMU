@@ -95,4 +95,24 @@
     </div>
   </script>
 
+  <script id="previewInfo.html" type="text/ng-template">
+    <div id ="previewModal" class="modal" on-swipe-down="closePreviewModal()">
+      <ion-content id="workContent">
+        <div>
+          <img id="previewImage" src ={{workData.Images[0]}} />
+          <span id="rightColumn">
+            <div id="previewTitle">
+              {{workData.Title}}
+            </div>
+            <div id="previewLocation">
+              Located {{workData.LocationDescription}}, {{distance}} away
+            </div>
+          </span>
+        </div>
+        <button id="previewClose" ng-click="closePreviewModal()" class="selection button button-clear">Close</button>
+      </ion-content>
+    </div>
+  </script>
+
+
 </html>

@@ -126,3 +126,43 @@
 #workClose{
 	margin-bottom: 70px;
 }
+
+/* ///////////////////// PREVIEW INFO STYLE ////////////*/
+#previewModal{
+    margin-top: 500px;
+    text-align: center;
+}
+
+#previewImage{
+    margin-left: 0px;
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+}
+
+#rightColumn{
+    display: inline-block;
+    width: 200px;
+}
+
+#previewTitle{
+    font-size: 20px !important;
+    font-weight: bold;
+    margin-left: 10px; 
+    position: absolute;
+    top: 0px;
+}
+
+#previewLocation{
+    text-align:left;
+    margin-left: 10px;
+    position: absolute;
+    top: 50px;
+}
+
+
+#previewClose{
+    margin: auto;
+    background: #eee;
+    width: 100%;
+}
