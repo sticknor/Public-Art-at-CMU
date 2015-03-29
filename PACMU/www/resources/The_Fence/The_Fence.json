@@ -1,0 +1,16 @@
+{
+    "LocationDescription": "on the cut at the center of campus",
+    "Images" : ["resources/The_Fence/The_Fence_01.jpg",
+                "resources/The_Fence/The_Fence_02.jpg"],
+    "ImagesMinus" : ["resources/The_Fence/The_Fence_01.jpg"],
+    "Coordinates": {
+        "Longitude":40.442247, 
+        "Latitude": -79.943479
+    },
+    "Title": "The Fence",
+    "Artist": "CMU administration, and now students",
+    "Notes": "Relief with marble benches designed by Long Xiang and Wang Jiangeng; A gift of the Broad Air Conditioning Company, China.",
+    "Year": "1916",
+    "Medium": "Wooden fence and paint",
+    "Information": "In the early days of Carnegie Tech, there was a single bridge, which connected Margaret Morrison Women's College with the Carnegie Institute of Technology. The bridge was a meeting place for students. In 1916, the bridge was taken down and the university filled in the area. The administration built a wooden fence as a new meeting place. The students did not understand why anyone would want to meet at a fence. Administration was about to give up and tear it down but that night a fraternity, as a prank, painted the entire fence advertising a fraternity party. Ever since, painting The Fence has been a Carnegie Mellon tradition."
+}

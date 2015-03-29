@@ -1,0 +1,16 @@
+{
+    "LocationDescription": "outside between Baker and Porter Halls",
+    "Images" : ["resources/Mao_Yisheng/Mao_Yisheng_01.jpg",
+                "resources/Mao_Yisheng/Mao_Yisheng_02.jpg"],
+    "ImagesMinus" : ["resources/Mao_Yisheng/Mao_Yisheng_01.jpg"],
+    "Coordinates": {
+        "Longitude":40.441756, 
+        "Latitude": -79.945458
+    },
+    "Title": "Mao Yisheng",
+    "Artist": "Sun Lu",
+    "Notes": "Relief with marble benches designed by Long Xiang and Wang Jiangeng; A gift of the Broad Air Conditioning Company, China.",
+    "Year": "2006",
+    "Medium": "Bronze",
+    "Information": "This sculpture commemorates Mao Yisheng, the recipient of the first PhD granted by the Carnegie institute of Technology in 1919. Doctor Mao was an engineer who had a long and productive career that included designing two of the most famous bridges in China: The Qiantang River Bridge and the Yangstze River Bridge. He also led the structural design team on the Great Hall of the People in Beijing."
+}

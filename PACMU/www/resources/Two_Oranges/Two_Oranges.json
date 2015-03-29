@@ -1,0 +1,16 @@
+{
+    "LocationDescription": "at the entrance to Wean Hall",
+    "Images" : ["resources/Two_Oranges/Two_Oranges_01.jpg",
+                "resources/Two_Oranges/Two_Oranges_02.jpg"],
+    "ImagesMinus" : ["resources/Two_Oranges/Two_Oranges_01.jpg"],
+    "Coordinates": {
+        "Longitude":40.442425,
+        "Latitude": -79.945938
+    },
+    "Title": "For the Love of Two Oranges",
+    "Artist": "L. Clark Winter",
+    "Notes": "",
+    "Year": "1969",
+    "Medium": "Painted Steel",
+    "Information": "Winter was a Professor of Art in the College of Fine Arts from 1955 to 1972. This is a minimalist sculpture very much of its time. In many ways, it is related to Hume’s Snowman located just down the lawn. However, Gary Hume’s is comical while this one is more earnest in form  (although the use of color suggests a lightness of heart)."
+}

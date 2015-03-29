@@ -119,6 +119,34 @@ angular.module('starter', ['ionic'])
     google.maps.event.addListener(snowman, 'click', function() {
       $scope.openWorkModal("Snowman/Snowman.json")
     });   
+    // For the Love of Two Oranges
+    var two_oranges = new google.maps.Marker({
+      position: new google.maps.LatLng(40.442425, -79.945938),
+      map: map,
+      title: "For the Love of Two Oranges"
+    });
+    google.maps.event.addListener(two_oranges, 'click', function() {
+      $scope.openWorkModal("Two_Oranges/Two_Oranges.json")
+    });   
+    // Mao Yisheng
+    var mao_yisheng = new google.maps.Marker({
+      position: new google.maps.LatLng(40.441756, -79.945458),
+      map: map,
+      title: "Mao Yisheng"
+    });
+    google.maps.event.addListener(mao_yisheng, 'click', function() {
+      $scope.openWorkModal("Mao_Yisheng/Mao_Yisheng.json")
+    });   
+    // For the Love of Two Oranges
+    var the_fence = new google.maps.Marker({
+      position: new google.maps.LatLng(40.442247, -79.943479),
+      map: map,
+      title: "The Fence"
+    });
+    google.maps.event.addListener(the_fence, 'click', function() {
+      $scope.openWorkModal("The_Fence/The_Fence.json")
+    });   
+
 
 
     $scope.map = map;
