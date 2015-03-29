@@ -1,0 +1,16 @@
+{
+    "LocationDescription": "on the exterior of University Center",
+    "Images" : ["resources/Mannino_Tiles/Mannino_Tiles_01.jpg",
+                "resources/Mannino_Tiles/Mannino_Tiles_02.jpg"],
+    "ImagesMinus" : ["resources/Mannino_Tiles/Mannino_Tiles_01.jpg"],
+    "Coordinates": {
+        "Longitude": 40.443302,
+        "Latitude": -79.942556
+    },
+    "Title": "Mannino's Tiles",
+    "Artist": "Joe Mannino",
+    "Notes": "A gift from the College of Fine Arts, asked by Martin Prekop, Dean of the College of Fine Arts in 1995",
+    "Year": "1995",
+    "Medium": "High-relief ceramic tiles",
+    "Information": "Each of the 21 tiles is approximately 32” high by 10” wide. Their purpose is to add humanity and warmth to a monumental structure and to send out a quiet announcement that the Cohon University Center is for all to use and enjoy. The tiles depict warm scenes from Carnegie Mellon's past."
+}

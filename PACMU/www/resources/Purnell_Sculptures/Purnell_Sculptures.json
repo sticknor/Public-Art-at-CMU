@@ -1,0 +1,16 @@
+{
+    "LocationDescription": "on the exterior of Purnell Hall",
+    "Images" : ["resources/Purnell_Sculptures/Purnell_Sculptures_01.jpg",
+                "resources/Purnell_Sculptures/Purnell_Sculptures_02.jpg"],
+    "ImagesMinus" : ["resources/Purnell_Sculptures/Purnell_Sculptures_01.jpg"],
+    "Coordinates": {
+        "Longitude": 40.443481, 
+        "Latitude": -79.943273
+    },
+    "Title": "Purnell Hall Sculptures",
+    "Artist": "Carol Kumata",
+    "Notes": "",
+    "Year": "1999, installed 2000",
+    "Medium": "Bronze",
+    "Information": "Purnell Hall houses CMU’s renowned drama department. These bronze curtains allude to stage curtains and the function of the building. Kumata was inspired by the energy emanating from the building and she wanted to soften and feminize the architecture. Each curtain represents an architectural motif from Hornbostel’s original drawings for the CFA building."
+}

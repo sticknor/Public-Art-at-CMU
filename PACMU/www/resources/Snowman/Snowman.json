@@ -1,0 +1,16 @@
+{
+    "LocationDescription": "behind Doherty facing Baker",
+    "Images" : ["resources/Snowman/Snowman_01.jpg",
+                "resources/Snowman/Snowman_02.jpg"],
+    "ImagesMinus" : ["resources/Snowman/Snowman_01.jpg"],
+    "Coordinates": {
+        "Longitude": 40.442122, 
+        "Latitude": -79.944152
+    },
+    "Title": "Snowman",
+    "Artist": "Gary Hume",
+    "Notes": "A gift from Martin and Sheila Fine",
+    "Year": "2002",
+    "Medium": "Bronze and enamel",
+    "Information": "Weighing 1500 pounds, this sculpture came from exhibition at White Cube in London in 2002. Hume was one of the YBA generation of artists who came to fame in the eighties (included Damien Hirst, Tracey Emin, Jake and Dinos Chapman). Hume and friend built a snowman on a Hill in the Peak District,  colored the snow with food dye and took photographs of it. It then became a painting in 1996, with the object reduced to a small tan colored circle, resting on a larger red circle, set against a cold grey and blue background."
+}

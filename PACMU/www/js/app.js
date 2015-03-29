@@ -47,8 +47,83 @@ angular.module('starter', ['ionic'])
     google.maps.event.addListener(kraus_campo, 'click', function() {
       $scope.openWorkModal("Kraus_Campo/Kraus_Campo.json")
     });
+    // Pittsburgh Mural
+    var pittsburgh_mural = new google.maps.Marker({
+      position: new google.maps.LatLng(40.443452,-79.942273),
+      map: map,
+      title: 'Pittsburgh Mural'
+    });
+    google.maps.event.addListener(pittsburgh_mural, 'click', function() {
+      $scope.openWorkModal("Pittsburgh_Mural/Pittsburgh_Mural.json")
+    });
+    // CFA Niches
+    var cfa_niches = new google.maps.Marker({
+      position: new google.maps.LatLng(40.441684,-79.943110),
+      map: map,
+      title: 'CFA Niches'
+    });
+    google.maps.event.addListener(cfa_niches, 'click', function() {
+      $scope.openWorkModal("CFA_Niches/CFA_Niches.json")
+    });
+    // Mannino's Tiles
+    var mannino_tiles = new google.maps.Marker({
+      position: new google.maps.LatLng(40.443302,-79.942556),
+      map: map,
+      title: "Mannino's Tiles"
+    });
+    google.maps.event.addListener(mannino_tiles, 'click', function() {
+      $scope.openWorkModal("Mannino_Tiles/Mannino_Tiles.json")
+    });
+    // Walking to the Sky
+    var walking_sky = new google.maps.Marker({
+      position: new google.maps.LatLng(40.444140,-79.942884),
+      map: map,
+      title: "Walking to the Sky"
+    });
+    google.maps.event.addListener(walking_sky, 'click', function() {
+      $scope.openWorkModal("Walking_To_The_Sky/Walking_To_The_Sky.json")
+    });    
+    // Purnell Hall Sculptures
+    var purnell_sculptures = new google.maps.Marker({
+      position: new google.maps.LatLng(40.443481,-79.943273),
+      map: map,
+      title: "Purnell Hall Sculptures"
+    });
+    google.maps.event.addListener(purnell_sculptures, 'click', function() {
+      $scope.openWorkModal("Purnell_Sculptures/Purnell_Sculptures.json")
+    });    
+    // Cloud Window
+    var cloud_window = new google.maps.Marker({
+      position: new google.maps.LatLng(40.442614, -79.943628),
+      map: map,
+      title: "Cloud Window"
+    });
+    google.maps.event.addListener(cloud_window, 'click', function() {
+      $scope.openWorkModal("Cloud_Window/Cloud_Window.json")
+    });    
+    // Fresh Faces
+    var fresh_faces = new google.maps.Marker({
+      position: new google.maps.LatLng(40.443601, -79.942217),
+      map: map,
+      title: "Fresh Faces"
+    });
+    google.maps.event.addListener(fresh_faces, 'click', function() {
+      $scope.openWorkModal("Fresh_Faces/Fresh_Faces.json")
+    });   
+    // Snowman
+    var snowman = new google.maps.Marker({
+      position: new google.maps.LatLng(40.442122, -79.944152),
+      map: map,
+      title: "Snowman"
+    });
+    google.maps.event.addListener(snowman, 'click', function() {
+      $scope.openWorkModal("Snowman/Snowman.json")
+    });   
+
+
     $scope.map = map;
   }
+
   // Make and show map
   google.maps.event.addDomListener(window, 'load', initializeMap);
 

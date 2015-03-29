@@ -1,0 +1,18 @@
+{
+    "LocationDescription": "on the cut across from Warner Hall",
+    "Images" : ["resources/Walking_To_The_Sky/Walking_To_The_Sky_01.jpg",
+                "resources/Walking_To_The_Sky/Walking_To_The_Sky_02.jpg",
+                "resources/Walking_To_The_Sky/Walking_To_The_Sky_03.jpg"],
+    "ImagesMinus" : ["resources/Walking_To_The_Sky/Walking_To_The_Sky_01.jpg",
+                     "resources/Walking_To_The_Sky/Walking_To_The_Sky_02.jpg"],
+    "Coordinates": {
+        "Longitude": 40.444140, 
+        "Latitude": -79.942884
+    },
+    "Title": "Walking to the Sky",
+    "Artist": "Jonathan Borofs",
+    "Notes": "A gift of Jill Gansman Kraus and Peter Kraus",
+    "Year": "2004",
+    "Medium": "Stainless steel",
+    "Information": "This 100 foot tall, seven ton sculpture reflects Carnegie Mellon’s 21st century effort to bring new forms of art and architecture to campus. It is inspired by story of friendly giant who lived in the sky and is a celebration of the human potential for discovering who we are and where we need to go. Walking to the Sky symbolizes ambitions of students and faculty, reaching out for new knowledge."
+}
