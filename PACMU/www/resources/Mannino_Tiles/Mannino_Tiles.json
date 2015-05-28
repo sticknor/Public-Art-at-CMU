@@ -1,8 +1,10 @@
 {
     "LocationDescription": "on the exterior of University Center",
     "Images" : ["resources/Mannino_Tiles/Mannino_Tiles_01.jpg",
-                "resources/Mannino_Tiles/Mannino_Tiles_02.jpg"],
-    "ImagesMinus" : ["resources/Mannino_Tiles/Mannino_Tiles_01.jpg"],
+                "resources/Mannino_Tiles/Mannino_Tiles_02.jpg",
+                "resources/Mannino_Tiles/Mannino_Tiles_03.jpg"],
+    "ImagesMinus" : ["resources/Mannino_Tiles/Mannino_Tiles_01.jpg",
+                     "resources/Mannino_Tiles/Mannino_Tiles_02.jpg"],
     "Coordinates": {
         "Longitude": 40.443302,
         "Latitude": -79.942556

@@ -1,5 +1,5 @@
 {
-    "LocationDescription": "by the Art Store on the lower floor of the UC",
+    "LocationDescription": "by the Art Store on the lower floor of the University Center",
     "Images" : ["resources/Fresh_Faces/Fresh_Faces_01.jpg",
                 "resources/Fresh_Faces/Fresh_Faces_02.jpg"],
     "ImagesMinus" : ["resources/Fresh_Faces/Fresh_Faces_01.jpg"],
@@ -10,7 +10,7 @@
     "Title": "Fresh Faces",
     "Artist": "Ron Bennett",
     "Notes": "",
-    "Year": "1995-200?",
+    "Year": "Began in 1995",
     "Medium": "Cast aluminium",
     "Information": "These sculptures are the results of a casting project the Bennett taught. Freshman students were encouraged to consider the project as a capturing of personality. These sculptures are a novel variation on the idea of a yearbook."
 }

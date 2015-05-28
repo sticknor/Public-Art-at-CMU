@@ -1,7 +1,7 @@
 {
     "LocationDescription": "at the front of CFA",
-    "Images" : ["resources/CFA_Niches/CFA_Niches_01.jpg"],
-    "ImagesMinus" : [],
+    "Images" : ["resources/CFA_Niches/CFA_Niches_01.jpg", "resources/CFA_Niches/CFA_Niches_02.jpg"],
+    "ImagesMinus" : ["resources/CFA_Niches/CFA_Niches_01.jpg"],
     "Coordinates": {
         "Longitude": 40.441684,
         "Latitude": -79.943110

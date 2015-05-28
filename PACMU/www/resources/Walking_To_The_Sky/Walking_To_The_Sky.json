@@ -1,10 +1,8 @@
 {
     "LocationDescription": "on the cut across from Warner Hall",
     "Images" : ["resources/Walking_To_The_Sky/Walking_To_The_Sky_01.jpg",
-                "resources/Walking_To_The_Sky/Walking_To_The_Sky_02.jpg",
-                "resources/Walking_To_The_Sky/Walking_To_The_Sky_03.jpg"],
-    "ImagesMinus" : ["resources/Walking_To_The_Sky/Walking_To_The_Sky_01.jpg",
-                     "resources/Walking_To_The_Sky/Walking_To_The_Sky_02.jpg"],
+                "resources/Walking_To_The_Sky/Walking_To_The_Sky_02.jpg"],
+    "ImagesMinus" : ["resources/Walking_To_The_Sky/Walking_To_The_Sky_01.jpg"],
     "Coordinates": {
         "Longitude": 40.444140, 
         "Latitude": -79.942884

@@ -34,28 +34,10 @@
         <div id="map" data-tap-disabled="true"></div>
       </ion-content>
       <div  id = "bottomBar" class="bar bar-footer">
-        <button ng-click="openTourModal()" class="selection button button-clear">Take A Tour</button>
-        <button ng-click="centerOnMe()" class="selection button button-clear">Nearest Piece</button>
+        <button id="nearestPieceButton" ng-click="centerOnMe()" class="selection button button-clear">Nearest Piece</button>
       </div>
     </ion-pane>
   </body>
-
-  <script id="planTour.html" type="text/ng-template">
-    <div id="planTourModal" class="modal">
-      <ion-content>
-        <button class ="tourButton selection button">
-          Short Tour (1 mile)
-        </button>
-        <button class=" selection button tourButton">
-          Full Tour (5.8 miles)
-        </button>
-      </ion-content>
-      <div id="bottomBar" class="bar bar-footer">
-        <button class="selection button button-clear">Begin</button>
-        <button ng-click="closeTourModal()" class="selection button button-clear">Cancel</button>
-      </div>
-    </div>
-  </script>
 
   <script id="workOfArt.html" type="text/ng-template">
     <div id ="workOfArtModal" class="modal" on-swipe-left="nextImage()" on-swipe-right="previousImage()" on-swipe-down="closeWorkModal()">
@@ -109,7 +91,9 @@
             </div>
           </span>
         </div>
-        <button id="previewClose" ng-click="closePreviewModal()" class="selection button button-clear">Close</button>
+        <div  id = "bottomBar" class="bar bar-footer">
+          <button id="previewClose" ng-click="closePreviewModal()" class="selection button button-clear">Close</button>
+        </div>
       </ion-content>
     </div>
   </script>

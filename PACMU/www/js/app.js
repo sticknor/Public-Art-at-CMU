@@ -199,24 +199,9 @@ angular.module('starter', ['ionic'])
   
   //////////////// MODALS //////////////////
   
-  ///// Tour Modal /////////
-  $ionicModal.fromTemplateUrl('planTour.html', {
-      scope: $scope,
-      animation: 'slide-in-up'
-    }).then(function(modal) {
-      $scope.tourModal = modal
-    }) 
-  $scope.openTourModal = function() {
-    $scope.tourModal.show()
-  };
-  $scope.closeTourModal = function() {
-    $scope.tourModal.hide();
-  };
-
 
   ////////// Work Modal ///////////////
   $scope.openWorkModal = function(file) {
-    console.log("called from where")
     loadJSON('../resources/'+file,
              function(data) { 
               $scope.workData = data;

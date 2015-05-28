@@ -1,8 +1,10 @@
 {
     "LocationDescription": "at the entrance to Wean Hall",
     "Images" : ["resources/Two_Oranges/Two_Oranges_01.jpg",
-                "resources/Two_Oranges/Two_Oranges_02.jpg"],
-    "ImagesMinus" : ["resources/Two_Oranges/Two_Oranges_01.jpg"],
+                "resources/Two_Oranges/Two_Oranges_02.jpg",
+                "resources/Two_Oranges/Two_Oranges_03.jpg"],
+    "ImagesMinus" : ["resources/Two_Oranges/Two_Oranges_01.jpg",
+                    "resources/Two_Oranges/Two_Oranges_02.jpg"],
     "Coordinates": {
         "Longitude":40.442425,
         "Latitude": -79.945938
