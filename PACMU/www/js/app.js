@@ -51,33 +51,33 @@ angular.module('starter', ['ionic'])
     $scope.the_fence_location = new google.maps.LatLng(40.442247, -79.943479);
 
     $scope.work_locations = [
-      $scope.kraus_campo_location,
-      $scope.pittsburgh_mural_location,
-      $scope.cfa_niches_location,
-      $scope.mannino_tiles_location,
       $scope.walking_sky_location,
       $scope.purnell_sculptures_location,
-      $scope.cloud_window_location,
       $scope.fresh_faces_location,
-      $scope.snowman_location,
-      $scope.two_oranges_location,
-      $scope.mao_yisheng_location,
+      $scope.pittsburgh_mural_location,
+      $scope.mannino_tiles_location,
+      $scope.kraus_campo_location,
+      $scope.cfa_niches_location,
       $scope.the_fence_location,
+      $scope.cloud_window_location,
+      $scope.snowman_location,
+      $scope.mao_yisheng_location,
+      $scope.two_oranges_location,
     ]
 
     $scope.work_information = [
-      "Kraus_Campo/Kraus_Campo.json",
-      "Pittsburgh_Mural/Pittsburgh_Mural.json",
-      "CFA_Niches/CFA_Niches.json",
-      "Mannino_Tiles/Mannino_Tiles.json",
       "Walking_To_The_Sky/Walking_To_The_Sky.json",
       "Purnell_Sculptures/Purnell_Sculptures.json",
-      "Cloud_Window/Cloud_Window.json",
       "Fresh_Faces/Fresh_Faces.json",
+      "Pittsburgh_Mural/Pittsburgh_Mural.json",
+      "Mannino_Tiles/Mannino_Tiles.json",
+      "Kraus_Campo/Kraus_Campo.json",
+      "CFA_Niches/CFA_Niches.json",
+      "The_Fence/The_Fence.json",
+      "Cloud_Window/Cloud_Window.json",
       "Snowman/Snowman.json",
-      "Two_Oranges/Two_Oranges.json",
       "Mao_Yisheng/Mao_Yisheng.json",
-      "The_Fence/The_Fence.json"
+      "Two_Oranges/Two_Oranges.json",
     ]
 
     //////// Art Markers ////////////
@@ -355,7 +355,94 @@ angular.module('starter', ['ionic'])
     }
   }
 
+  $scope.drawTourRoutes = function() {
+    $scope.centerOnMe();
+    // change to match actual nearest work
+    // look at directionsToNearest to fine closestIndex
+    var closestIndex = 0;
 
+    var batches = [[],[]];
+    var batchStarts = [closestIndex, (closestIndex + ($scope.work_locations.length / 2) - 1) % $scope.work_locations.length]
+    var batchLengths = [$scope.work_locations.length / 2, $scope.work_locations.length - $scope.work_locations.length / 2 + 1];
+    for(var i=0; i < 2; i++){
+      var batch_start = batchStarts[i];
+      var batch_length = batchLengths[i];
+      for(var j = 0; j < batch_length; j++){
+        batches[i].push({ location: $scope.work_locations[(batch_start+j)%$scope.work_locations.length],
+                          stopover: true});
+      }
+    }
+    console.log(batches);
+    var combinedResults;
+    var unsortedResults = [{}]; // to hold the counter and the results themselves as they come back, to later sort
+    var directionsResultsReturned = 0;
+    var directionsService = new google.maps.DirectionsService();
+    var directionsDisplay;
+    directionsDisplay = new google.maps.DirectionsRenderer({
+     suppressMarkers: true
+    });
+    directionsDisplay.setMap($scope.map)
+    for (var k = 0; k < batches.length; k++) {
+        var lastIndex = batches[k].length - 1;
+        var start = batches[k][0].location;
+        var end = batches[k][lastIndex].location;
+         
+        // trim first and last entry from array
+        var waypts = [];
+        waypts = batches[k];
+        waypts.splice(0, 1);
+        waypts.splice(waypts.length - 1, 1);
+         
+        var request = {
+            origin : start,
+            destination : end,
+            waypoints : waypts,
+            travelMode : window.google.maps.TravelMode.WALKING
+        };
+        (function (kk) {
+            directionsService.route(request, function (result, status) {
+                if (status == window.google.maps.DirectionsStatus.OK) {
+                     
+                    var unsortedResult = {
+                        order : kk,
+                        result : result
+                    };
+                    unsortedResults.push(unsortedResult);
+                     
+                    directionsResultsReturned++;
+                     
+                    if (directionsResultsReturned == batches.length) // we've received all the results. put to map
+                    {
+                        // sort the returned values into their correct order
+                        unsortedResults.sort(function (a, b) {
+                            return parseFloat(a.order) - parseFloat(b.order);
+                        });
+                        var count = 0;
+                        for (var key in unsortedResults) {
+                            if (unsortedResults[key].result != null) {
+                                if (unsortedResults.hasOwnProperty(key)) {
+                                    if (count == 0) // first results. new up the combinedResults object
+                                        combinedResults = unsortedResults[key].result;
+                                    else {
+                                        // only building up legs, overview_path, and bounds in my consolidated object. This is not a complete
+                                        // directionResults object, but enough to draw a path on the map, which is all I need
+                                        combinedResults.routes[0].legs = combinedResults.routes[0].legs.concat(unsortedResults[key].result.routes[0].legs);
+                                        combinedResults.routes[0].overview_path = combinedResults.routes[0].overview_path.concat(unsortedResults[key].result.routes[0].overview_path);
+                                         
+                                        combinedResults.routes[0].bounds = combinedResults.routes[0].bounds.extend(unsortedResults[key].result.routes[0].bounds.getNorthEast());
+                                        combinedResults.routes[0].bounds = combinedResults.routes[0].bounds.extend(unsortedResults[key].result.routes[0].bounds.getSouthWest());
+                                    }
+                                    count++;
+                                }
+                            }
+                        }
+                        directionsDisplay.setDirections(combinedResults);
+                    }
+                }
+            });
+        })(k);
+    }
+  }
   $scope.openPreviewModal = function(file) {
     loadJSON('../resources/'+file,
              function(data) { 
