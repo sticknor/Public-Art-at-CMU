@@ -25,7 +25,7 @@ angular.module('starter', ['ionic'])
 })
 
 
-.controller('AppCtrl', function($scope, $ionicLoading, $ionicPlatform, $ionicModal){
+.controller('AppCtrl', function($scope, $ionicLoading, $ionicPlatform, $ionicModal, $http){
  
   ///////////////// MAP ///////////////////
   function initializeMap() {
@@ -196,13 +196,22 @@ angular.module('starter', ['ionic'])
   // Make and show map
   google.maps.event.addDomListener(window, 'load', initializeMap);
 
+  $ionicPlatform.ready(function () {
+    initializeMap();
+  });
+
   
   //////////////// MODALS //////////////////
   
 
   ////////// Work Modal ///////////////
   $scope.openWorkModal = function(file) {
-    loadJSON('../resources/'+file,
+    // var filePath = 'resources/' + file;
+    // $http.get(filePath, ).success(function (data){
+    //   console.log("WE have the data", data);
+    // })
+
+    loadJSON('resources/'+file,
              function(data) { 
               $scope.workData = data;
               $ionicModal.fromTemplateUrl('workOfArt.html', {
@@ -222,21 +231,26 @@ angular.module('starter', ['ionic'])
   };
   function loadJSON(path, success, error)
   {
-      var xhr = new XMLHttpRequest();
-      xhr.onreadystatechange = function()
-      {
-          if (xhr.readyState === XMLHttpRequest.DONE) {
-              if (xhr.status === 200) {
-                  if (success)
-                      success(JSON.parse(xhr.responseText));
-              } else {
-                  if (error)
-                      error(xhr);
-              }
-          }
-      };
-      xhr.open("GET", path, true);
-      xhr.send();
+
+    $http.get(path).success( function(data){
+      console.log("WE GOT IT ", data);
+      success(data);
+    })
+      // var xhr = new XMLHttpRequest();
+      // xhr.onreadystatechange = function()
+      // {
+      //     if (xhr.readyState === XMLHttpRequest.DONE) {
+      //         if (xhr.status === 200) {
+      //             if (success)
+      //                 success(JSON.parse(xhr.responseText));
+      //         } else {
+      //             if (error)
+      //                 error(xhr);
+      //         }
+      //     }
+      // };
+      // xhr.open("GET", path, true);
+      // xhr.send();
   }
  $scope.nextImage = function() {
     var len = $scope.workData.Images.length;
