@@ -30,8 +30,8 @@
       <div id = "topBar" ng-click="centerOnCMU()" class="bar bar-header bar-light">
         <h1 id = "Title" class = "title">Public Art at CMU</h1>
       </div>
-      <ion-content>
-        <div id="map" data-tap-disabled="true"></div>
+      <ion-content class="has-header has-footer" scroll="false" data-tap-disabled="true">
+        <div id="map" ></div>
       </ion-content>
       <div  id = "bottomBar" class="bar bar-footer">
         <button id="nearestPieceButton" ng-click="centerOnMe()" class="selection button button-clear">Nearest Piece</button>
@@ -40,7 +40,7 @@
   </body>
 
   <script id="workOfArt.html" type="text/ng-template">
-    <div id ="workOfArtModal" class="modal" on-swipe-left="nextImage()" on-swipe-right="previousImage()" on-swipe-down="closeWorkModal()">
+    <div id ="workOfArtModal" class="modal has-header" on-swipe-left="nextImage()" on-swipe-right="previousImage()" on-swipe-down="closeWorkModal()">
       <ion-content id="workContent">
         <div id="workTitle">
           {{workData.Title}}
